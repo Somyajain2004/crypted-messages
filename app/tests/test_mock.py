@@ -12,9 +12,16 @@ def test_time():
     print("/time =>", res.json())
 
 def test_fizzbuzz():
-    payload = {"data": "anything"}
-    res = requests.post(f"{LOCAL_URL}/fizzbuzz", json=payload)
-    print("/fizzbuzz =>", res.json())
+    test_cases = [
+        ["1", "2", "Fizz", "4", "Buzz"],  
+        ["1", "2", "3", "4", "5"],        
+        [],                               
+    ]
+
+    for i, payload in enumerate(test_cases, 1):
+        res = requests.post(f"{LOCAL_URL}/fizzbuzz", json=payload)
+        print(f"/fizzbuzz Test {i} => Input: {payload} | Output:", res.json())
+
 
 def test_zap():
     payload = {"data": "a1b2c3 d4e5"}

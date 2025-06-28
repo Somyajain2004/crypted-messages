@@ -26,9 +26,16 @@ def get_time():
     return jsonify(tick_value)
 
 
-@app.route('/fizzbuzz', methods=['POST'])
+@app.route("/fizzbuzz", methods=["POST"])
 def fizzbuzz():
-    return jsonify(False)
+    try:
+        data = request.get_json(force=True)
+        if not isinstance(data, list):
+            return jsonify({"error": "Input must be a valid JSON array"}), 400
+        return jsonify(False)
+    except:
+        return jsonify({"error": "Input must be a valid JSON array"}), 400
+
 
 @app.route('/zap', methods=['POST'])
 def zap():
