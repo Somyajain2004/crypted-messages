@@ -17,7 +17,7 @@
 
 
 ### POST /fizzbuzz
-- Always returns false
+- Returns false for all types of lists. But, input is required in JSON list form only. Else, it gives error. Always returns false, for all types of lists.
 
 ### POST /zap
 - Removes digits from the input string
